@@ -11,7 +11,7 @@ bool isButtonOn = false;
 
 void setup() {
   Serial.begin(9600);
-  pinMode(buttonPin, INPUT);  // Use internal pull-up resistor
+  pinMode(buttonPin, INPUT_PULLUP);  // Use internal pull-up resistor
   pinMode(ledPin, OUTPUT);
 }
 
@@ -53,10 +53,12 @@ bool isButtonActivated() {
   // Button is normally HIGH
   if (state == HIGH) {
     // Button not pressed
-    return true;
+  Serial.print("OFF ");
+    return false;
   } else {
     // Button pressed
-    return false;
+    Serial.print("ON ");    
+    return true;
   }
 
   // HINT: Serial.print should say "ON" or "OFF" too
