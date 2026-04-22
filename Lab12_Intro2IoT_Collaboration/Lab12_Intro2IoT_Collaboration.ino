@@ -38,11 +38,11 @@ bool isRoomDark() {
   Serial.print("Light Level: ");
   Serial.println(lightLevel);
 
-  if(lightLevel>100){
+  if(lightLevel<100){
     return true;
   }
 
-  else if(lightLevel<100){
+  else if(lightLevel>100){
     return false;
   }
 
@@ -61,11 +61,11 @@ bool isButtonActivated() {
   // Button is normally HIGH
   if (state == HIGH) {
     // Button not pressed
-  Serial.print("OFF ");
+  Serial.println("OFF ");
     return false;
   } else {
     // Button pressed
-    Serial.print("ON ");    
+    Serial.println("ON ");    
     return true;
   }
 
